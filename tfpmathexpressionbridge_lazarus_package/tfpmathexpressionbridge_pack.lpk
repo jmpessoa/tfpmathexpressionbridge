@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<CONFIG>
+  <Package Version="4">
+    <PathDelim Value="\"/>
+    <Name Value="tfpmathexpressionbridge_pack"/>
+    <CompilerOptions>
+      <Version Value="11"/>
+      <PathDelim Value="\"/>
+      <SearchPaths>
+        <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
+      </SearchPaths>
+      <Other>
+        <CompilerMessages>
+          <MsgFileName Value=""/>
+        </CompilerMessages>
+        <CompilerPath Value="$(CompPath)"/>
+      </Other>
+    </CompilerOptions>
+    <Files Count="7">
+      <Item1>
+        <Filename Value="fpmathexpressionbridge.pas"/>
+        <UnitName Value="FPMathExpressionBridge"/>
+      </Item1>
+      <Item2>
+        <Filename Value="fpmathexpressionbridge_icon.lrs"/>
+        <Type Value="LRS"/>
+      </Item2>
+      <Item3>
+        <Filename Value="tfpmathexpressionbridge.png"/>
+        <Type Value="Binary"/>
+      </Item3>
+      <Item4>
+        <Filename Value="fpexprpars_wp.pp"/>
+        <UnitName Value="fpexprpars_wp"/>
+      </Item4>
+      <Item5>
+        <Filename Value="mpmath_wp.pas"/>
+        <UnitName Value="mpMath_wp"/>
+      </Item5>
+      <Item6>
+        <Filename Value="mpspe_wp.pas"/>
+        <UnitName Value="mpspe_wp"/>
+      </Item6>
+      <Item7>
+        <Filename Value="regmathexpressionbridge.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="regmathexpressionbridge"/>
+      </Item7>
+    </Files>
+    <Type Value="RunAndDesignTime"/>
+    <RequiredPkgs Count="2">
+      <Item1>
+        <PackageName Value="LCL"/>
+      </Item1>
+      <Item2>
+        <PackageName Value="FCL"/>
+      </Item2>
+    </RequiredPkgs>
+    <UsageOptions>
+      <UnitPath Value="$(PkgOutDir)"/>
+    </UsageOptions>
+    <PublishOptions>
+      <Version Value="2"/>
+    </PublishOptions>
+  </Package>
+</CONFIG>
