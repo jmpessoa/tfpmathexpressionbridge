@@ -1,0 +1,306 @@
+<?xml version="1.0"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="23">
+      <Unit0>
+        <Filename Value="project1.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="project1"/>
+        <EditorIndex Value="0"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="9" Y="5"/>
+        <UsageCount Value="185"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="unit1.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit1"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="217"/>
+        <CursorPos X="26" Y="222"/>
+        <UsageCount Value="185"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="dlgabout.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="AboutBridge"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="dlgAbout"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="48" Y="10"/>
+        <UsageCount Value="31"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="..\fpexpressionparserbridge.pas"/>
+        <UnitName Value="FPExpressionParserBridge"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="319"/>
+        <CursorPos X="48" Y="327"/>
+        <UsageCount Value="26"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="..\fpexprpars_wp.pp"/>
+        <UnitName Value="fpexprpars_wp"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="2928"/>
+        <CursorPos X="20" Y="2945"/>
+        <UsageCount Value="2"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="..\mpmath_wp.pas"/>
+        <UnitName Value="mpMath_wp"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="53"/>
+        <CursorPos X="12" Y="58"/>
+        <UsageCount Value="26"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="..\..\tachart\tafuncseries.pas"/>
+        <UnitName Value="TAFuncSeries"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="759"/>
+        <CursorPos X="8" Y="767"/>
+        <UsageCount Value="2"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="C:\fpc\2.6.1\source\packages\numlib\src\typ.pas"/>
+        <UnitName Value="typ"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="93"/>
+        <CursorPos X="40" Y="107"/>
+        <UsageCount Value="2"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="..\..\GraphicsBridge\ttfpcolorpropertyeditorpack.pas"/>
+        <UnitName Value="TTFPColorPropertyEditorPack"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="3" Y="10"/>
+        <UsageCount Value="2"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="..\fpmathexpressionbridge.pas"/>
+        <UnitName Value="FPMathExpressionBridge"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="65"/>
+        <CursorPos X="32" Y="197"/>
+        <UsageCount Value="20"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="..\graphicsbridge.pas"/>
+        <UnitName Value="GraphicsBridge"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="418"/>
+        <CursorPos X="1" Y="398"/>
+        <UsageCount Value="2"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="..\fpxmlbridge.pas"/>
+        <UnitName Value="FPXMLBridge"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="8"/>
+        <CursorPos X="21" Y="15"/>
+        <UsageCount Value="10"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="C:\fpc\2.6.1\source\rtl\objpas\math.pp"/>
+        <UnitName Value="math"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="199"/>
+        <CursorPos X="10" Y="209"/>
+        <UsageCount Value="2"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="C:\fpc\2.6.1\source\rtl\objpas\classes\classesh.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="663"/>
+        <CursorPos X="3" Y="673"/>
+        <UsageCount Value="4"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="C:\github\tftpxmlbridge\tfpxmlbridge_lazarus_package\fpxmlbridge.pas"/>
+        <UnitName Value="FPXMLBridge"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="65"/>
+        <CursorPos X="25" Y="72"/>
+        <UsageCount Value="4"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="..\tfpmathexpressionbridge_lazarus_package\fpmathexpressionbridge.pas"/>
+        <UnitName Value="FPMathExpressionBridge"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="125"/>
+        <CursorPos X="30" Y="146"/>
+        <UsageCount Value="51"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="C:\lazarus\components\tachart\tafuncseries.pas"/>
+        <UnitName Value="TAFuncSeries"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="129"/>
+        <CursorPos X="32" Y="135"/>
+        <UsageCount Value="7"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="C:\lazarus\components\bridges\fpmathexpressionbridge.pas"/>
+        <UnitName Value="FPMathExpressionBridge"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="404"/>
+        <CursorPos X="4" Y="424"/>
+        <UsageCount Value="5"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="..\tfpmathexpressionbridge_lazarus_package\fpexprpars_wp.pp"/>
+        <UnitName Value="fpexprpars_wp"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1105"/>
+        <CursorPos X="116" Y="1120"/>
+        <UsageCount Value="33"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="..\tfpmathexpressionbridge_lazarus_package\mpmath_wp.pas"/>
+        <UnitName Value="mpMath_wp"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="41"/>
+        <CursorPos X="22" Y="58"/>
+        <UsageCount Value="29"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="fpexprpars_wp.pp"/>
+        <UnitName Value="fpexprpars_wp"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="703"/>
+        <CursorPos X="3" Y="714"/>
+        <UsageCount Value="11"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="unit1.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit21>
+      <Unit22>
+        <Filename Value="..\tfpmathexpressionbridge_lazarus_package\mpspe_wp.pas"/>
+        <UnitName Value="mpspe_wp"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="15" Y="78"/>
+        <UsageCount Value="10"/>
+      </Unit22>
+    </Units>
+    <General>
+      <ActiveWindowIndexAtStart Value="0"/>
+    </General>
+    <JumpHistory Count="23" HistoryIndex="22">
+      <Position1>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="293" Column="24" TopLine="285"/>
+      </Position1>
+      <Position2>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="294" Column="24" TopLine="286"/>
+      </Position2>
+      <Position3>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="295" Column="24" TopLine="287"/>
+      </Position3>
+      <Position4>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="10" Column="38" TopLine="1"/>
+      </Position4>
+      <Position5>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="42" Column="52" TopLine="32"/>
+      </Position5>
+      <Position6>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="64" Column="11" TopLine="57"/>
+      </Position6>
+      <Position7>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="182" Column="25" TopLine="178"/>
+      </Position7>
+      <Position8>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="181" Column="25" TopLine="177"/>
+      </Position8>
+      <Position9>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="180" Column="25" TopLine="176"/>
+      </Position9>
+      <Position10>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="181" Column="25" TopLine="177"/>
+      </Position10>
+      <Position11>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="65" Column="26" TopLine="50"/>
+      </Position11>
+      <Position12>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="66" Column="16" TopLine="50"/>
+      </Position12>
+      <Position13>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="10" Column="52" TopLine="1"/>
+      </Position13>
+      <Position14>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="66" Column="3" TopLine="55"/>
+      </Position14>
+      <Position15>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="81" Column="11" TopLine="73"/>
+      </Position15>
+      <Position16>
+        <Filename Value="project1.lpr"/>
+        <Caret Line="8" Column="26" TopLine="1"/>
+      </Position16>
+      <Position17>
+        <Filename Value="project1.lpr"/>
+        <Caret Line="22" Column="3" TopLine="1"/>
+      </Position17>
+      <Position18>
+        <Filename Value="project1.lpr"/>
+        <Caret Line="21" Column="1" TopLine="1"/>
+      </Position18>
+      <Position19>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="1" Column="14" TopLine="1"/>
+      </Position19>
+      <Position20>
+        <Filename Value="project1.lpr"/>
+        <Caret Line="3" Column="5" TopLine="1"/>
+      </Position20>
+      <Position21>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="4" Column="11" TopLine="1"/>
+      </Position21>
+      <Position22>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="224" Column="29" TopLine="218"/>
+      </Position22>
+      <Position23>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="223" Column="29" TopLine="217"/>
+      </Position23>
+    </JumpHistory>
+  </ProjectSession>
+  <EditorMacros Count="0"/>
+</CONFIG>

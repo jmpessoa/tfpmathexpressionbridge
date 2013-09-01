@@ -1,0 +1,5 @@
+  
+
+{ask r40137 TParametricCurveSeries}
+
+http://svn.freepascal.org/cgi-bin/viewvc.cgi/trunk/components/tachart/tafuncseries.pas?annotate=40137&root=lazarus&pathrev=40137

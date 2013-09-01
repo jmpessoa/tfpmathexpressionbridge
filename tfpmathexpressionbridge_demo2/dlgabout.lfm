@@ -1,0 +1,49 @@
+object AboutBridge: TAboutBridge
+  Left = 383
+  Height = 312
+  Top = 158
+  Width = 403
+  BorderStyle = bsDialog
+  Caption = 'About TFPMathExpressionBridge'
+  ClientHeight = 312
+  ClientWidth = 403
+  LCLVersion = '1.0.6.0'
+  object MemoAbout: TMemo
+    Left = 0
+    Height = 236
+    Top = 26
+    Width = 403
+    Align = alClient
+    ScrollBars = ssAutoBoth
+    TabOrder = 0
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 50
+    Top = 262
+    Width = 403
+    Align = alBottom
+    Caption = 'Panel1'
+    ClientHeight = 50
+    ClientWidth = 403
+    TabOrder = 1
+    object Button1: TButton
+      Left = 176
+      Height = 25
+      Top = 10
+      Width = 75
+      Caption = 'Close'
+      ModalResult = 1
+      TabOrder = 0
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Height = 26
+    Top = 0
+    Width = 403
+    Align = alTop
+    Caption = 'Readme.txt'
+    TabOrder = 2
+  end
+end
