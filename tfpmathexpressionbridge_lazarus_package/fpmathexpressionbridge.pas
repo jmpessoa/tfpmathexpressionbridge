@@ -5,7 +5,7 @@ unit FPMathExpressionBridge;
 interface
 
 uses
-  Classes, SysUtils, fpexprpars_wp {wp revision}, mpMath_wp {wp revision} , Math;
+  Classes, SysUtils, fpexprpars_wp, mpMath_wp, Math;
 
 type
   TIdentifierParse = procedure(Index: integer; AName: string; out AValue: real) of object;
@@ -13,8 +13,8 @@ type
   TExprFunc = procedure(var Result: TFPExpressionResult; const Args: TExprParameterArray);
 
   TEvalueteResult = record
-       Value: real;
-       IsValid: boolean;
+      Value: real;
+      IsValid: boolean;
   end;
 
 type
@@ -74,7 +74,7 @@ type
 
     published
       {Published declarations }
-     // property About : boolean read FAbout write SetAbout;
+      //property About : boolean read FAbout write SetAbout;
       property ListExpressions: TStrings read FExpressionList write SetExpressionList;
       property ListConstants: TStrings read FConstantList write SetConstantList;
       property ListVariables: TStrings read FVariableList write SetVariableList;
@@ -85,17 +85,7 @@ type
 function TrimChar(sText: string; delchar: char): string;
 function SplitStr(var theString: string; delimiter: string): string;
 
-//procedure Register;
-
 implementation
-
-(*
-procedure Register;
-begin
-  {$I fpmathexpressionbridge_icon.lrs}
-  RegisterComponents('Bridges',[TFPMathExpressionBridge]);
-end;
-*)
 
   (*
 procedure TFPMathExpressionBridge.SetAbout(Value : boolean);
