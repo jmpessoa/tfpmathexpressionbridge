@@ -16,11 +16,8 @@ Procedure Register;
 
 begin
   {$I fpmathexpressionbridge_icon.lrs}
-  RegisterComponents('Bridges',[TFPMathExpressionBridge]);
+  RegisterComponents('Graphics Bridges',[TFPMathExpressionBridge]);
 end;
-
-initialization
 
 end.
 
-end;

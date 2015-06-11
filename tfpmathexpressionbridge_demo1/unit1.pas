@@ -27,7 +27,6 @@ type
     Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
-    MenuItem1: TMenuItem;
     MenuItem11: TMenuItem;
     MenuItem15: TMenuItem;
     MenuItem16: TMenuItem;
@@ -50,6 +49,7 @@ type
     ToolButton4: TToolButton;
     procedure Chart1FuncSeries1Calculate(const AX: Double; out AY: Double);
     procedure FormCreate(Sender: TObject);
+    procedure FormDeactivate(Sender: TObject);
     procedure FPMathExpressionBridge1ConstantParse(Index: integer; AName: string; out
       AValue: real);
     procedure FPMathExpressionBridge1VariableParse(Index: integer; AName: string; out
@@ -96,10 +96,8 @@ end;
 procedure TForm1.ToolButton2Click(Sender: TObject);
 begin
   Chart1FuncSeries1.Active:= False;
-
   FPMathExpressionBridge1.AddVariable(Edit2.Text); //x
   FPMathExpressionBridge1.AddConstant(Edit3.Text); //k
-
   FPMathExpressionBridge1.VariableOfFunc:= Edit2.Text; //x
   FPMathExpressionBridge1.Expression:= Edit1.Text;
   Chart1FuncSeries1.Active:= True;  //triggers callback TForm1.Chart1FuncSeries1Calculate
@@ -135,17 +133,19 @@ end;
 //OnVariableParse
 procedure TForm1.FPMathExpressionBridge1VariableParse(Index: integer; AName: string; out AValue: real);
 begin
-  if AName = 'Z' then AValue:= 1;
-  if AName = 'Q' then AValue:= 2;
-  if AName = 'T' then AValue:= 3;
+    if AName = 'Z' then AValue:= 1
+    else if AName = 'Q' then AValue:= 2
+    else if AName = 'T' then AValue:= 3
+    else  AValue:= 0;
 end;
 
 ////EvalExpr
 procedure TForm1.MenuItem11Click(Sender: TObject);
 var
   R: TEvalueteResult;
-begin                                  //2*1+3*2+4*3 = 20
-  R:= FPMathExpressionBridge1.EvalExpr('2*Z+3*Q+4*T',['Z','Q','T']); //callback OnVariableParse
+begin
+                                      //2*1+3*2+4*3 = 20 // Fixed!! Thank to @mars
+  R:= FPMathExpressionBridge1.EvalExpr('2*Z+3*Q+4*T',['Z','Q','T' ]); //callback OnVariableParse
   ShowMessage(FloatToStrF(R.Value, ffFixed,0,2));
 end;
 
@@ -235,7 +235,7 @@ begin
       strAbout.Add('function EvalFunc(AValue: real)                //eval function for one variable....');
            strAbout.Add('use: EvalFunc(AValue)');
       strAbout.Add('function EvalFunc(AValues: array of real)      //eval function for many variables...');
-           strAbout.Add('EvalFunc([AValue1, AValue2, AValue3])');
+           strAbout.Add('use: EvalFunc([AValue1, AValue2, AValue3])');
     strAbout.Add('2.2 Expression Evaluete //event driver');
       strAbout.Add('function EvalExpr(Expr: string; ANamesVar: array of string)');
       strAbout.Add('use:  EvalExpr(''A*x**x+ B*x + C'', [''x'',''A'',''B'',''C'']) //triggers OnVariableParse');
@@ -293,6 +293,7 @@ begin
     //here just for example....
 
     //constants are CASE insensitive
+
     FPMathExpressionBridge1.AddConstant('A');
     FPMathExpressionBridge1.AddConstant('B');
     FPMathExpressionBridge1.AddConstant('C');
@@ -300,8 +301,13 @@ begin
     FPMathExpressionBridge1.AddConstant('R');
 
     //variables  are CASE insensitive
-    FPMathExpressionBridge1.AddVariable('x');
-    FPMathExpressionBridge1.AddVariable('t');
+    FPMathExpressionBridge1.AddVariable('X');
+    FPMathExpressionBridge1.AddVariable('T');
+end;
+
+procedure TForm1.FormDeactivate(Sender: TObject);
+begin
+  Close;
 end;
 
 end.

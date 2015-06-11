@@ -1,4 +1,7 @@
-  
+Need r40137 or higher  !!!
+
+
+TAChart::  Parametric Curve Series  
 
 {ask r40137 TParametricCurveSeries}
 

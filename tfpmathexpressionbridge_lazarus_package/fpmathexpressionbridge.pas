@@ -55,11 +55,11 @@ type
       { Protected declarations }
     public
       {Public declarations}
-      function EvalFunc(AValue: real): TEvalueteResult;   //one variable....
-      function EvalFunc(AValues: array of real): TEvalueteResult; //many variables...
+      function EvalFunc(AValue: real): TEvalueteResult;   overload;   //one variable....
+      function EvalFunc(AValues: array of real): TEvalueteResult;   overload; //many variables...
 
-      function EvalExpr(Expr: string; ANamesVar: array of string): TEvalueteResult;
-      function EvalExpr: TEvalueteResult;
+      function EvalExpr(Expr: string; ANamesVar: array of string): TEvalueteResult;  overload;
+      function EvalExpr: TEvalueteResult;   overload;
 
       function AddVariable(AName: string): integer;
       function AddConstant(AName: string): integer;
@@ -71,6 +71,7 @@ type
       destructor Destroy; override;
       property Expression: string read FExpression write SetExpression;
       property VariableOfFunc: string read FVariableOfFunc write SetVariableOfFunc;
+      property VarIndex: integer read FVarIndex;
 
     published
       {Published declarations }
@@ -165,10 +166,14 @@ function TFPMathExpressionBridge.AddVariable(AName: string): integer;
 var
    upperName: string;
 begin
-    upperName:= Uppercase(TrimChar(AName, ' '));
+    Result:= -1;
+    upperName:= Uppercase(Trim(AName));
     FVariableOfFunc:= upperName;
-    Result:= FVariableList.IndexOf(upperName);
-    if  Result < 0 then
+
+    if FVariableList.Count > 0 then
+       Result:= FVariableList.IndexOf(upperName);
+
+    if  Result < 0 then  //not found
     begin
        FVariableList.Add(upperName);
        FVarIndex:= FVariableList.Count-1;  //index
@@ -181,7 +186,7 @@ var
    upperStr: string;
    cName: string;
 begin
-   upperStr:= Uppercase(TrimChar(AName, ' '));
+   upperStr:= Uppercase(Trim(AName));
    if Pos('=', upperStr) > 0 then
    begin
       cName:= SplitStr(upperStr, '=');
@@ -200,16 +205,20 @@ begin
          FConstantList.Add(upperStr);
          Result:= FConstantList.Count-1;  //index
       end;
-    end;
+   end;
 end;
 
 function TFPMathExpressionBridge.AddExpression(Expr: string): integer;
 var
    upperName: string;
 begin
-    upperName:= TrimChar(Uppercase(Expr), ' ');
-    Result:= FConstantList.IndexOf(upperName);
-    if Result < 0 then
+    Result:= -1;
+    upperName:= Trim(Uppercase(Expr));
+
+    if  FExpressionList.Count > 0 then
+         Result:= FExpressionList.IndexOf(upperName);  //fixed! thanks to @mars
+
+    if Result < 0 then  //not found ...
     begin
        FExpressionList.Add(upperName);
        Result:= FExpressionList.Count-1;   //index
@@ -218,51 +227,52 @@ end;
 
 procedure TFPMathExpressionBridge.SetVariableOfFunc(AName: string);
 begin
-    FVariableOfFunc:= Uppercase(TrimChar(AName, ' '));
+    FVariableOfFunc:= Uppercase(Trim(AName));
     FVarIndex:= GetVariableIndexByName(FVariableOfFunc);
     if FVarIndex < 0 then FVarIndex:= AddVariable(FVariableOfFunc);
 end;
 
 procedure TFPMathExpressionBridge.SetExpression(Expr: string);
 var
-    i,indexExpr: integer;
-    upperExpr: string;
-    cName: string;
-    outValue: real;
+   i, indexExpr: integer;
+   upperExpr: string;
+   cName: string;
+   outValue: real;
 begin
-    for i:= 0 to FIdentifierDefList.Count-1 do
-    begin
-      TFPExprIdentifierDef(FIdentifierDefList.Items[i]).Free;
-    end;
-    FIdentifierDefList.Clear; //or free and re-create ?
-    for i:= 0 to FConstantList.Count-1 do
-    begin
-      if FParser.Identifiers.IndexOfIdentifier(FConstantList.Strings[i]) < 0 then
+   for i:= 0 to FConstantList.Count-1 do
+   begin
+      if FParser.Identifiers.IndexOfIdentifier(FConstantList.Strings[i]) < 0 then  //if not exist --> Add
       begin
          cName:= FConstantList.Strings[i];
          DoConstantParse(i, cName, outValue); //event driver!
          FIdentifierDefList.Add(TFPExprIdentifierDef(
-                         FParser.Identifiers.AddFloatVariable(cName, outValue)));
+                      FParser.Identifiers.AddFloatVariable(cName, outValue)));
       end;
-    end;
-    if FVariableList.Count > 0 then
-    begin
-        for i:= 0 to FVariableList.Count-1 do
-        begin
-          if FParser.Identifiers.IndexOfIdentifier(FVariableList.Strings[i]) < 0 then
-          begin
-              FIdentifierDefList.Add(TFPExprIdentifierDef(
-                                  FParser.Identifiers.AddFloatVariable(FVariableList.Strings[i],0.0)));
-          end;
-        end;
-    end;
-    upperExpr:= Uppercase(TrimChar(Expr, ' '));
-    indexExpr:= FVariableList.IndexOf(upperExpr);
-    if  indexExpr < 0 then FExpressionList.Add(upperExpr);
+   end;
+   if FVariableList.Count > 0 then
+   begin
+      for i:= 0 to FVariableList.Count-1 do
+      begin
+         if FParser.Identifiers.IndexOfIdentifier(FVariableList.Strings[i]) < 0 then  //if not exist --> Add
+         begin
+            FIdentifierDefList.Add(TFPExprIdentifierDef(
+                      FParser.Identifiers.AddFloatVariable(FVariableList.Strings[i],0.0)));
+         end;
+      end;
+   end;
 
-    FExpression:= upperExpr;
-   // ShowMessage(FExpression);
-    FParser.Expression:= FExpression;
+   upperExpr:= Uppercase(Trim(Expr));
+
+   indexExpr:= -1;
+   if FExpressionList.Count > 0 then
+       indexExpr:= FExpressionList.IndexOf(upperExpr); //fixed! thanks to @mars
+
+   if  indexExpr < 0 then
+      FExpressionList.Add(upperExpr);
+
+   FExpression:= upperExpr;
+
+   FParser.Expression:= FExpression;
 end;
 
 //assign values for the firsts "count" variables....
@@ -274,7 +284,8 @@ begin
   Result.Value:= 0.0;
   Result.IsValid:= False;
   j:= FConstantList.Count; //constants...
-  count:= High(AValues) + 1;
+  count:= Length(AValues);
+
   if FVariableList.Count > 0 then
   begin                      //j is the first index disponible for variables!
     for i:= 0 to count-1 do
@@ -303,7 +314,7 @@ begin
   Result.IsValid:= False;
   j:= FConstantList.Count; //constants...
   if FVariableList.Count > 0 then
-  begin                 //j is the first index disponible for variables!
+  begin                    //j is the first index disponible for variables!
     TFPExprIdentifierDef(FIdentifierDefList.Items[j+indexVar]).AsFloat:= AValue;
     E:=FParser.Evaluate;
     if not IsNaN(E.ResFloat) then
@@ -318,33 +329,37 @@ function TFPMathExpressionBridge.EvalExpr: TEvalueteResult; // entirely event dr
 Var
   E: TFPExpressionResult;
   outValue: real;
-  j,i: integer;
+  j, i: integer;
 begin
   Result.Value:= 0.0;
-  Result.IsValid:= False;
-  j:= FConstantList.Count; //constants
+  Result.IsValid:= False;   //j is the first index disponible for variables!
+
+  j:= FConstantList.Count;  //NOTE: varibles index comes after last constant by code design!
+
   for i:= 0 to FVariableList.Count-1 do //variables
   begin
      DoVariableParse(i, FVariableList.Strings[i], outValue); //event driver!
-     TFPExprIdentifierDef(FIdentifierDefList.Items[j+i]).AsFloat:= outValue;
+     TFPExprIdentifierDef(FIdentifierDefList.Items[j+i]).AsFloat:= outValue; //NOTE: varibles index comes after last constant!
   end;
+
   E:=FParser.Evaluate;
   if not IsNaN(E.ResFloat) then
   begin
      Result.Value:= E.ResFloat;
      Result.IsValid:= True;
   end;
+
 end;
 
 function TFPMathExpressionBridge.EvalExpr(Expr: string; ANamesVar: array of string): TEvalueteResult;
 var
   i, count: integer;
 begin
-  count:= High(ANamesVar) + 1;
+  count:= Length(ANamesVar);
+
   for i:= 0 to count-1 do
-  begin
-     AddVariable(Uppercase(TrimChar(ANamesVar[i], ' ')));
-  end;
+     AddVariable(Uppercase(Trim(ANamesVar[i])));
+
   SetExpression(Expr);
   Result:= Self.EvalExpr; //here "Self" must have!
 end;
@@ -352,11 +367,13 @@ end;
 constructor TFPMathExpressionBridge.Create(AOwner: TComponent);
 begin
   inherited Create(AOwner);
+
   FExpressionList:= TStringList.Create;
   FVariableList:= TStringList.Create;
   FConstantList:= TStringList.Create;
   FIdentifierDefList:= TList.Create;
-  FParser:= TFPExpressionParser.Create(Self);   //or nil? *
+
+  FParser:= TFPExpressionParser.Create(nil);   //nil?
   FParser.BuiltIns:= [bcMath];   //only Math functions!
 
   //Added by wp  .......... Thank you wp!!!
@@ -406,7 +423,7 @@ begin
       TFPExprIdentifierDef(FIdentifierDefList.Items[i]).Free;
   end;
   FIdentifierDefList.Free;
-  FreeAndNil(FParser);  //* ?
+  FreeAndNil(FParser);
   inherited Destroy;
 end;
            {Generics function}

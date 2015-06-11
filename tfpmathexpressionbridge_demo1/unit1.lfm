@@ -1,13 +1,14 @@
 object Form1: TForm1
-  Left = 292
+  Left = 294
   Height = 363
-  Top = 123
+  Top = 130
   Width = 487
   Caption = 'TFPMathExpressionBridge App Demo1'
   ClientHeight = 363
   ClientWidth = 487
   OnCreate = FormCreate
-  LCLVersion = '1.1'
+  OnDeactivate = FormDeactivate
+  LCLVersion = '1.3'
   object Panel1: TPanel
     Left = 0
     Height = 50
@@ -36,12 +37,12 @@ object Form1: TForm1
       object ToolButton3: TToolButton
         Left = 36
         Top = 2
-        Width = 10
+        Width = 5
         Caption = 'ToolButton3'
-        Style = tbsSeparator
+        Style = tbsDivider
       end
       object Label1: TLabel
-        Left = 46
+        Left = 41
         Height = 15
         Top = 2
         Width = 58
@@ -49,7 +50,7 @@ object Form1: TForm1
         ParentColor = False
       end
       object Edit1: TEdit
-        Left = 104
+        Left = 99
         Height = 23
         Top = 2
         Width = 128
@@ -57,7 +58,7 @@ object Form1: TForm1
         Text = 'k*(2*sin(x)-sin(2*x))'
       end
       object Label2: TLabel
-        Left = 232
+        Left = 227
         Height = 15
         Top = 2
         Width = 45
@@ -65,7 +66,7 @@ object Form1: TForm1
         ParentColor = False
       end
       object Edit2: TEdit
-        Left = 277
+        Left = 272
         Height = 23
         Top = 2
         Width = 26
@@ -73,7 +74,7 @@ object Form1: TForm1
         Text = 'x'
       end
       object Label3: TLabel
-        Left = 303
+        Left = 298
         Height = 15
         Top = 2
         Width = 51
@@ -81,7 +82,7 @@ object Form1: TForm1
         ParentColor = False
       end
       object Edit3: TEdit
-        Left = 354
+        Left = 349
         Height = 23
         Top = 2
         Width = 21
@@ -89,21 +90,21 @@ object Form1: TForm1
         Text = 'k'
       end
       object ToolButton2: TToolButton
-        Left = 433
+        Left = 428
         Top = 2
         Caption = 'ToolButton2'
         ImageIndex = 5
         OnClick = ToolButton2Click
       end
       object ToolButton4: TToolButton
-        Left = 456
+        Left = 451
         Top = 2
         Caption = 'ToolButton4'
         ImageIndex = 6
         OnClick = ToolButton4Click
       end
       object FloatSpinEdit1: TFloatSpinEdit
-        Left = 383
+        Left = 378
         Height = 23
         Top = 2
         Width = 50
@@ -114,7 +115,7 @@ object Form1: TForm1
         Value = 1
       end
       object Label4: TLabel
-        Left = 375
+        Left = 370
         Height = 15
         Top = 2
         Width = 8
@@ -413,46 +414,6 @@ object Form1: TForm1
     Images = ImageList1
     left = 145
     top = 147
-    object MenuItem1: TMenuItem
-      Caption = 'Esc'
-      Bitmap.Data = {
-        36040000424D3604000000000000360000002800000010000000100000000100
-        2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
-        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-        FFFFFFFFFFFFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFFFF458F63FF458F63FF458F63FF458F
-        63FFFFFFFFFFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFFFF458F63FF53CD8FFF5ECD92FF458F
-        63FFFFFFFFFFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-        FF00FFFFFF00FFFFFFFFFFFFFFFFFFFFFFFF458F63FF54CD90FF5ECD92FF458F
-        63FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-        FF00FFFFFF00FFFFFFFF458F63FF458F63FF458F63FF58D496FF69C490FF458F
-        63FF458F63FF458F63FFFFFFFFFFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-        FF00FFFFFF00FFFFFF00FFFFFFFF458F63FF5ECD92FF5AD799FF5FCD93FF59C5
-        8BFF458F63FFFFFFFFFFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFFFF458F63FF5ECD92FF5AAE7CFF458F
-        63FFFFFFFFFFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFFFF458F63FF458F63FFFFFF
-        FFFFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFFFFFFFFFFFFFFFF
-        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
-      }
-      ImageIndex = 0
-    end
     object MenuItem2: TMenuItem
       Caption = 'Function Series'
       Bitmap.Data = {
